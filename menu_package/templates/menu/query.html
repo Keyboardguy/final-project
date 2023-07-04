@@ -1,0 +1,10 @@
+{% for dish in dishes %}
+    <li>
+        <h2>{{ dish["name"] }}</h2>
+        <ul>
+            <li>Price: £{{ f'{dish["price"]:.2f}' }}</li>
+            <li>Menu number: {{ dish["menu_number"] }}</li>
+            <li>Type: {{ dish["type_name"] }}</li>
+        </ul>
+    </li>
+{% endfor %}
