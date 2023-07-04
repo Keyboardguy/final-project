@@ -18,5 +18,9 @@ def create_app():
     from . import db
     db.init_app(app)
 
+    from . import menu
+    app.register_blueprint(menu.bp)
+    app.add_url_rule('/', endpoint='index')
+
     return app
     
