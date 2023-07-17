@@ -1,0 +1,124 @@
+/* generic styling */
+html {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+*, *:before, *:after {
+box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+}
+
+/* header */
+
+header {
+    text-align: center;
+}
+
+/* nav */
+nav > ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: black;
+}
+
+/* https://stackoverflow.com/questions/16540009/padding-on-anchor-included-in-list-doesnt-resize-the-list-items-height */
+
+nav a {
+    display: block;
+    padding: 0.5em;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+}
+
+@media (min-width: 800px) {
+    nav > ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav a {
+        display: inline-block;
+        padding: 0.5em 1em;
+        text-decoration: none;
+        color: white;
+    }
+
+    nav a:hover {
+        z-index: 1;
+        background-color: #222222;
+        color: white;
+    }
+}
+
+/* search bar styling */
+#search_bar {
+    padding: 0.5em;
+}
+
+label, input {
+    font-size: 1.5em;
+}
+
+label {
+    display: block;
+    padding-bottom: 0.2em;
+}
+
+/* item list styling */
+
+#results {
+    padding: 0;
+    list-style: none inside;
+}
+
+#results > li {
+    background-color: turquoise;
+    padding: 0.5em;
+}
+
+#results > li:nth-child(n+2) {
+    border-top: 1px solid yellow;
+}
+
+#results h2 {
+    margin: 0;
+}
+
+/* dish details layout */
+
+div.details {
+    display: flex;
+}
+
+div.details.hidden {
+    display: none;
+}
+
+.add_delete {
+    flex: 0 0 4em;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.details > ul {
+    flex: 1em;
+}
+
+.add_delete > * {
+    margin-top: 0.2em;
+}
+
+/* dish details list layout */
+
+.details > ul {
+    padding: 0;
+}
+

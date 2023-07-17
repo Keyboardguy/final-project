@@ -1,13 +1,29 @@
 from flask import (
-    Blueprint, render_template, request
+    Blueprint, render_template, request, session
 )
 
 from menu_package.db import get_db
 
 bp = Blueprint('menu', __name__)
 
-@bp.route("/")
+@bp.route("/", methods=["GET", "POST"])
 def index():
+    if request.method == "POST":
+        dish_id = request.form.get("dish")
+        if dish_id == None:
+            return 0
+        
+        if "current_dishes" not in session:
+            session["current_dishes"] = []
+        
+        for dish in session["current_dishes"]:
+            if dish["id"] == dish_id:
+                dish["count"] += 1
+                return dish["count"]
+        
+        session["current_dishes"].append({"id": dish_id, "count": 1})
+        return 1
+
     return render_template("menu/index.html")
 
 @bp.route("/search")

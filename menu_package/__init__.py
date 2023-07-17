@@ -7,6 +7,7 @@ def create_app():
     """ create and configure the app """
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
+        SECRET_KEY = "448374fd7a4a1bc60267cd59f9f7be52beb0784db705a34a2a5610eedb7e0e35",
         DATABASE=os.path.join(app.instance_path, 'menu.sqlite'),
     )
 
