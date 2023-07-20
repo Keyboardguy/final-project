@@ -10,7 +10,14 @@
             <div class="add_delete">
                 <button>Add</button>
                 <button>Delete</button>
-                <span>0</span>
+                
+                {% if dish["id"] in session["current_dishes"] %}
+                    <span>{{ session["current_dishes"][dish["id"]]["count"] }}</span>
+                {% else %}
+                    <span>0</span>
+                {% endif %}
+                
+                <input type="hidden" value="{{ dish['id'] }}">
             </div>
         </div>
     </li>
