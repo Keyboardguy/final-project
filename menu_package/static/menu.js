@@ -48,6 +48,7 @@ function attach_listeners() {
         const delete_button = div.children[1];
         const span = div.children[2];
         const dish_id = div.children[3].value;
+        div.children[3].remove();
 
         attach_button_listener(add_button, "/add", dish_id, 1, span);
         attach_button_listener(delete_button, "/delete", dish_id, -1, span);

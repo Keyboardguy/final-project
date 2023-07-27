@@ -1,22 +1,22 @@
 {% for dish in dishes %}
     <li>
-        <h2>{{ dish["name"] }}</h2>
+        <h2>{{ dish['name'] }}</h2>
         <div class="details hidden">
             <ul>
-                <li>Price: £{{ dish["price"] }}</li>
-                <li>Menu number: {{ dish["menu_number"] }}</li>
-                <li>Type: {{ dish["type_name"] }}</li>
+                <li>Price: £{{ dish['price'] }}</li>
+                <li>Menu number: {{ dish['menu_number'] }}</li>
+                <li>Type: {{ dish['type_name'] }}</li>
             </ul>
             <div class="add_delete">
                 <button>Add</button>
                 <button>Delete</button>
                 
-                {% if dish["id"] in session["current_dishes"] %}
-                    <span>{{ session["current_dishes"][dish["id"]]["count"] }}</span>
+                {# Note - The keys for the session are strings. #}
+                {% if dish['id'] | string in session['current_dishes'] %}
+                    <span>{{ session['current_dishes'][dish['id'] | string] }}</span>
                 {% else %}
                     <span>0</span>
                 {% endif %}
-                
                 <input type="hidden" value="{{ dish['id'] }}">
             </div>
         </div>

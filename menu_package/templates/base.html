@@ -9,11 +9,11 @@
 	</head>
 	<body>
 		<header>
-			<h1>Canton House Menu</h1>
+			<h1>{% block header_text %}Canton House Menu{% endblock %}</h1>
 		</header>
         <nav>
             <ul>
-                <li><a href="#">Kind of pointless.</a></li>
+                <li><a href="{{url_for('menu.basket')}}">Basket</a></li>
             </ul>
         </nav>
 		{% block content %}{% endblock %}
