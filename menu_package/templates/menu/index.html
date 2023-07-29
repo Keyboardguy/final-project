@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
 {% block head_tags %}
-    <script src="{{ url_for('static', filename='menu.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='index.js') }}" defer></script>
 {% endblock %}
 
 {% block title %}Menu for Canton House{% endblock %}
 
 {% block content %}
     <main>
-        <div id="search_bar">
+        <div id="top-div">
             <label for="menu-search">Enter dish name:</label>
             <input type="search" id="menu-search" name="q">
         </div>

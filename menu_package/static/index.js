@@ -1,11 +1,17 @@
 const search_bar = document.getElementById("menu-search");
 const results_list = document.getElementById("results");
 
-search_bar.addEventListener("input", async function() {
-    const fetch_promise = await fetch(`/search?q=${search_bar.value}`);
+// Render the page with all menu items upon loading the page.
+
+window.addEventListener("DOMContentLoaded", () => update_list(""));
+
+search_bar.addEventListener("input", () => update_list(search_bar.value));
+
+async function update_list(search) {
+    const fetch_promise = await fetch(`/search?q=${search}`);
     results_list.innerHTML = await fetch_promise.text();
     attach_listeners();
-})
+}
 
 function attach_listeners() {
     function attach_button_listener(button, fetch_url, dish_id, num, output_element) {
@@ -41,7 +47,7 @@ function attach_listeners() {
     }
 
     // make the buttons on the menu item work
-    const buttons_divs = document.querySelectorAll(".add_delete");
+    const buttons_divs = document.querySelectorAll(".add-delete");
 
     for (const div of buttons_divs) {
         const add_button = div.children[0];

@@ -1,16 +1,19 @@
 {% extends "base.html" %}
 
 {% block head_tags %}
-    <script src="{{ url_for('static', filename='menu.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='basket.js') }}" defer></script>
 {% endblock %}
 
 {% block title %}{% block header_text %}Basket{% endblock %}{% endblock %}
 
 {% block content %}
     <main>
-        <p>Total: {{ total }}</p>
+        <div id="top-div">
+            <p id="total">Total: £{{ '%0.2f' | format(total | float) }}</p>
+        </div>
         <ul id="results">
             {% include "menu/query.html" %}
         </ul>
+        <input id="total-hidden" type="hidden" value="{{ total }}">
     </main>
 {% endblock %}

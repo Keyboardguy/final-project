@@ -1,13 +1,13 @@
 {% for dish in dishes %}
     <li>
         <h2>{{ dish['name'] }}</h2>
-        <div class="details hidden">
+        <div class="{{ 'details hidden' if hidden else 'details' }}">
             <ul>
-                <li>Price: £{{ dish['price'] }}</li>
+                <li>Price: £{{ '%0.2f' | format(dish['price'] | float) }}</li>
                 <li>Menu number: {{ dish['menu_number'] }}</li>
-                <li>Type: {{ dish['type_name'] }}</li>
+                <li>Type: {{ dish['type_name'] }}</li>-
             </ul>
-            <div class="add_delete">
+            <div class="add-delete">
                 <button>Add</button>
                 <button>Delete</button>
                 

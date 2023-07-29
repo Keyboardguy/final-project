@@ -30,10 +30,14 @@ nav > ul {
 
 nav a {
     display: block;
-    padding: 0.5em;
+    padding: 0.7em;
     text-decoration: none;
     text-align: center;
     color: white;
+}
+
+nav a:nth-child(n + 1) {
+    border-top: 1px solid grey;
 }
 
 @media (min-width: 800px) {
@@ -57,9 +61,18 @@ nav a {
     }
 }
 
-/* search bar styling */
-#search_bar {
-    padding: 0.5em;
+/* search bar & basket total styling */
+#top-div {
+    padding: 1.2em;
+}
+
+#top-div p {
+    margin: 0;
+}
+
+#total {
+    font-size: 1.5em;
+    text-align: center;
 }
 
 label, input {
@@ -71,9 +84,11 @@ label {
     padding-bottom: 0.2em;
 }
 
+
 /* item list styling */
 
 #results {
+    margin: 0;
     padding: 0;
     list-style: none inside;
 }
@@ -101,7 +116,7 @@ div.details.hidden {
     display: none;
 }
 
-.add_delete {
+.add-delete {
     flex: 0 0 4em;
     display: flex;
     flex-flow: column nowrap;
@@ -112,7 +127,7 @@ div.details.hidden {
     flex: 1em;
 }
 
-.add_delete > * {
+.add-delete > * {
     margin-top: 0.2em;
 }
 
