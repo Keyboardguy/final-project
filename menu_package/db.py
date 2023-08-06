@@ -1,4 +1,3 @@
-# There's really no point to change this from the flask tutorial, so i'm just copy pasting it from there.
 # https://flask.palletsprojects.com/en/2.3.x/tutorial/database/
 import sqlite3
 
