@@ -25,9 +25,15 @@ function attach_listeners() {
 
             result = await fetch_promise.json();
             current_total += num * result["price"];
-            total_para.innerHTML = `Total: £${current_total.toFixed(2)}`
+            total_para.innerHTML = `Total: £${Math.abs(current_total).toFixed(2)}`
             if (result["new_count"] <= 0) {
-                parent_li.remove()
+                previous_li = parent_li.previousElementSibling;
+                next_li = parent_li.nextElementSibling;
+                if (previous_li.classList.contains("heading") && 
+                    (next_li === null || next_li.classList.contains("heading"))) {
+                    parent_li.previousElementSibling.remove();
+                }
+                parent_li.remove();
             } else {
                 output_element.innerHTML = result["new_count"]
             }
@@ -35,7 +41,7 @@ function attach_listeners() {
     }
 
     // make each menu item expandable
-    const list_items = document.querySelectorAll("#results > li");
+    const list_items = document.querySelectorAll("#results > li:not(.heading)");
     for (const li of list_items) {
         const name = li.children[0];
         const details = li.children[1];

@@ -9,7 +9,7 @@
 {% block content %}
     <main>
         <div id="top-div">
-            <p id="total">Total: £{{ '%0.2f' | format(total | float) }}</p>
+            <p id="total">Total: £{{ '%.2f' | format(total | float) }}</p>
         </div>
         <ul id="results">
             {% include "menu/query.html" %}

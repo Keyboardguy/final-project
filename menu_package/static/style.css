@@ -98,6 +98,13 @@ label {
     padding: 0.5em;
 }
 
+#results > li.heading {
+    font-size: 1.8em;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+}
+
 #results > li:nth-child(n+2) {
     border-top: 1px solid yellow;
 }

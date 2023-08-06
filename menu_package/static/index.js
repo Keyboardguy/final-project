@@ -32,7 +32,7 @@ function attach_listeners() {
     }
 
     // make each menu item expandable
-    const list_items = document.querySelectorAll("#results > li");
+    const list_items = document.querySelectorAll("#results > li:not(.heading)");
     for (const li of list_items) {
         const name = li.children[0];
         const details = li.children[1];

@@ -1,24 +1,29 @@
-{% for dish in dishes %}
-    <li>
-        <h2>{{ dish['name'] }}</h2>
-        <div class="{{ 'details hidden' if hidden else 'details' }}">
-            <ul>
-                <li>Price: £{{ '%0.2f' | format(dish['price'] | float) }}</li>
-                <li>Menu number: {{ dish['menu_number'] }}</li>
-                <li>Type: {{ dish['type_name'] }}</li>-
-            </ul>
-            <div class="add-delete">
-                <button>Add</button>
-                <button>Delete</button>
-                
-                {# Note - The keys for the session are strings. #}
-                {% if dish['id'] | string in session['current_dishes'] %}
-                    <span>{{ session['current_dishes'][dish['id'] | string] }}</span>
-                {% else %}
-                    <span>0</span>
-                {% endif %}
-                <input type="hidden" value="{{ dish['id'] }}">
+{% for name, dishes in sorted_dishes.items() %}
+    <li class="heading">{{ name }}</li>
+    {% for dish in dishes %}
+        <li>
+            <h2>{{ dish['name'] }}</h2>
+            <div class="{{ 'details hidden' if hidden else 'details' }}">
+                <ul>
+                    <li>Price: £{{ '%0.2f' | format(dish['price'] | float) }}</li>
+                    <li>Menu number: {{ dish['menu_number'] }}</li>
+                    {% if dish['dish_notes'] %}
+                        <li>Notes: {{ dish['dish_notes'] }}</li>
+                    {% endif %}
+                </ul>
+                <div class="add-delete">
+                    <button>Add</button>
+                    <button>Delete</button>
+                    
+                    {# Note - The keys for the session are strings. #}
+                    {% if dish['id'] | string in session['current_dishes'] %}
+                        <span>{{ session['current_dishes'][dish['id'] | string] }}</span>
+                    {% else %}
+                        <span>0</span>
+                    {% endif %}
+                    <input type="hidden" value="{{ dish['id'] }}">
+                </div>
             </div>
-        </div>
-    </li>
+        </li>
+    {% endfor %}
 {% endfor %}
