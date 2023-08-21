@@ -1,11 +1,15 @@
 # Menu for Canton House
-#### Video Demo:  <URL HERE>
+#### Video Demo:  https://www.youtube.com/watch?v=P1fL5CzHFRc
 #### Description:
+
+# Introduction
 
 This is a restaraunt menu based off of a real restaraunt menu in Dundee. In this website, you can add and remove items from a basket, and the basket will automatically calculate the total cost for you. As well as this, you can search the menu and using AJAX, it will automatically display the menu items containing the query. Finally, you can click on the dish name to expand it and show more details. It uses the flask framework.
 
 To run the website, type
-'flask --app menu_package --debug run'
+`flask --app menu_package --debug run`
+
+# Static and templates
 
 The static folder contains all the js and css. The js folders contain the code necessary for making the AJAX work, and it also attaches listeners whenever a new element is created, so that you can add and remove items to the session in the server. The listeners also control the opening and closing of the details of a dish.
 
@@ -13,9 +17,11 @@ All of the CSS here I wrote myself. I didn't use bootstrap because I felt that i
 
 The templates folder contains the html JINJA files. There is a base.html file which the other files inherit from. The basket.html and index.html just contain the skeleton for the website, and the query.html template is where the list of dishes is generated. The query.html template takes an array of dishes, and then takes all the information based off those dishes and turns into into a list of dishes. 
 
+# .py files
+
 The db.py file holds all the information necessary for connecting to a database and handling commands. This was actually really hard, and I had to look up a guide for how to do this on the official flask website. I picked this instead of the cs50 database because I wanted to gain skills with a database outside of the cs50 course. In order to actually initialise the database and have show the changes you have made to the database, you need to run:
 
- 'flask --app flaskr init-db'
+ `flask --app flaskr init-db`
 
  and it should come up with a message saying if the database has been initialized successfully.
 
@@ -24,6 +30,8 @@ The db.py file holds all the information necessary for connecting to a database 
  I made my own decorator inside the menu.py file because it avoided me reduplicating the code. Essentailly, the add and delete routes did nearly the same thing, but one deleted an item and one added an item. So I took out the common parts and turned them into a decorator, and applied it to both.
 
  The __init__.py file turns the folder it is in into a package. This is to make uploading and downloading the website easier, as you can import only this package with the website inside of it, and exclude other folders like tests and such. This file also sets up the flask website and bundles all of the files together into one nice website.
+
+ # Other files
 
  The schema.sql contains the commands that are ran when you initialise the database with the command up above. You need to create the tables and their relationships, and add the data. 
 
