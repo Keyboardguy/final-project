@@ -2,12 +2,12 @@
 #### Video Demo:  <URL HERE>
 #### Description:
 
-This is a restaraunt menu based off of a real restaraunt menu in Dundee. In this website, you can add and remove items from a basket, and the basket will automatically calculate the total cost for you. As well as this, you can search the menu and using AJAX, it will automatically display the menu items containing the query. It was based off the flask framework.
+This is a restaraunt menu based off of a real restaraunt menu in Dundee. In this website, you can add and remove items from a basket, and the basket will automatically calculate the total cost for you. As well as this, you can search the menu and using AJAX, it will automatically display the menu items containing the query. Finally, you can click on the dish name to expand it and show more details. It uses the flask framework.
 
 To run the website, type
 'flask --app menu_package --debug run'
 
-The static folder contains all the js and css. The js folders contain the code necessary for making the AJAX work, and it also attaches listeners whenever a new element is created, so that you can add and remove items to the session in the server.
+The static folder contains all the js and css. The js folders contain the code necessary for making the AJAX work, and it also attaches listeners whenever a new element is created, so that you can add and remove items to the session in the server. The listeners also control the opening and closing of the details of a dish.
 
 All of the CSS here I wrote myself. I didn't use bootstrap because I felt that it confined me to a certain style, and the freedom of being able to design anything pretty much exactly the way I wanted felt promising. There is also a little bit of responsive web design, for the navbar changes from vertical to horizontal at a certain viewport width. As well as this, I debated adding more responsive features to the website. However, every change I added actually made it look worse.
 
